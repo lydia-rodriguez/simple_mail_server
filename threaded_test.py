@@ -61,12 +61,18 @@ EMS Message: Filter Alert-The Air Filter is Dirty.'''
 }
 
 EMAIL_SUBJECTS = {
-    'VW_NY_NewYork_WashingtonHeights@mail.fsgenergy.com': '[vzw-alarms:3496290] VW_NY_NewYork_WashingtonHeights: Alarm Active - Alarm RTU Fan Stop',
-    'VW_CA_CorteMadera@mail.fsgenergy.com': '[vzw-alarms:3496246] VW_CA_CorteMadera: Alarm Cleared - Alert RTU Filter Pressure Drop',
-    'VW_KY_Lexington-Nicholasville@mail.fsgenergy.com': '[vzw-alarms:3496181] VW_KY_Lexington_Nicholasville: Alarm Active - Alarm RTU Fan Start',
-    'VW_KS_Topeka@mail.fsgenergy.com': '[vzw-alarms:3496141] VW_KS_Topeka: Alarm Active - Alert SensorFault C1HPT',
-    'VW_AZ_Chandler_ChandlerVillage@mail.fsgenergy.com': '[vzw-alarms:3496142] VW_AZ_Chandler_ChandlerVillage: Alarm Active - Alert RTU Filter Pressure Drop'
+    'VW_NY_NewYork_WashingtonHeights@mail.fsgenergy.com':
+        '[vzw-alarms:3496290] VW_NY_NewYork_WashingtonHeights: Alarm Active - Alarm RTU Fan Stop',
+    'VW_CA_CorteMadera@mail.fsgenergy.com':
+        '[vzw-alarms:3496246] VW_CA_CorteMadera: Alarm Cleared - Alert RTU Filter Pressure Drop',
+    'VW_KY_Lexington-Nicholasville@mail.fsgenergy.com':
+        '[vzw-alarms:3496181] VW_KY_Lexington_Nicholasville: Alarm Active - Alarm RTU Fan Start',
+    'VW_KS_Topeka@mail.fsgenergy.com':
+        '[vzw-alarms:3496141] VW_KS_Topeka: Alarm Active - Alert SensorFault C1HPT',
+    'VW_AZ_Chandler_ChandlerVillage@mail.fsgenergy.com':
+        '[vzw-alarms:3496142] VW_AZ_Chandler_ChandlerVillage: Alarm Active - Alert RTU Filter Pressure Drop'
 }
+
 
 def test_receiver():
     msgs = {}
@@ -89,11 +95,12 @@ def test_receiver():
 
     return 'sent all messages'
 
+
 def multiple_thread_test_receiver():
     with futures.ThreadPoolExecutor(25) as ex:
         upcoming_futures = []
 
-        for i in xrange(50):
+        for i in range(50):
             upcoming_futures.append(ex.submit(test_receiver))
 
         for f in futures.as_completed(upcoming_futures):
@@ -104,11 +111,12 @@ def multiple_thread_test_receiver():
 
     return 'threads complete'
 
+
 if __name__ == '__main__':
     with futures.ProcessPoolExecutor() as ex:
         upcoming_futures = []
 
-        for i in xrange(20):
+        for i in range(20):
             upcoming_futures.append(ex.submit(test_receiver))
 
         for f in futures.as_completed(upcoming_futures):

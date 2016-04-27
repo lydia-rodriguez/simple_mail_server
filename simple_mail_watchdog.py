@@ -28,7 +28,7 @@ def main(py_loc, proc_loc, log_file, config_file):
     try:
         while True:
             if proc is None:
-                print 'starting process'
+                print('starting process')
                 proc = subprocess.Popen([
                     py_loc,
                     os.path.join(proc_loc, 'start_server.py'),
@@ -47,7 +47,7 @@ def main(py_loc, proc_loc, log_file, config_file):
             if last_message_time <= time.time() - MESSAGE_DIFFERENCE_TIME:
                 logger.send_error('Last message received at {}. Restarting service if option enabled.'.format(last_message_time))
                 if MESSAGE_MISSED_CHECK:
-                    print 'killing process'
+                    print('killing process')
                     try:
                         proc.kill()
                     except:

@@ -6,13 +6,14 @@ from logger import TimedRotatingFileErrorLogger
 import traceback
 import time
 
+
 LOGGER = TimedRotatingFileErrorLogger('mail_receiver_test', 'mail_receiver_test.log', logging_level='INFO')
 
 TEST_EMAILS = {
     'VW_NY_NewYork_WashingtonHeights@mail.fsgenergy.com': (
         '''Fri Jul 10 14:18:17 2015
 
-An EMS Notification Has Occured
+An EMS Notification Has Occurred
 
 EMS Point: RTU 2 Fan Status
 EMS Value: On
@@ -22,7 +23,7 @@ EMS Message: Fan Alarm-The Supply Fan Has Failed to Stop.'''
     'VW_CA_CorteMadera@mail.fsgenergy.com': (
         '''Fri Jul 10 11:06:37 2015
 
-An EMS Return To Normal Has Occured
+An EMS Return To Normal Has Occurred
 
 EMS Point: RTU 1 Filter
 EMS Value: Clean
@@ -32,7 +33,7 @@ EMS Message: Filter Alert-The Air Filter is Clean.'''
     'VW_KY_Lexington-Nicholasville@mail.fsgenergy.com': (
         '''Fri Jul 10 13:36:51 2015
 
-An EMS Notification Has Occured
+An EMS Notification Has Occurred
 
 EMS Point: RTU 2 Fan Status
 EMS Value: Off
@@ -42,7 +43,7 @@ EMS Message: Fan Alarm-The Supply Fan Has Failed to Start.'''
     'VW_KS_Topeka@mail.fsgenergy.com': (
         '''Fri Jul 10 12:23:51 2015
 
-An EMS Notification Has Occured
+An EMS Notification Has Occurred
 
 EMS Point: RTU 3 IN-05 Comp 1 High Pressure Temp
 EMS Value: -327 Deg.F.
@@ -52,7 +53,7 @@ EMS Message: Sensor Alert-Sensor has Failed.'''
     'VW_AZ_Chandler_ChandlerVillage@mail.fsgenergy.com': (
         '''Fri Jul 10 10:34:45 2015
 
-An EMS Notification Has Occured
+An EMS Notification Has Occurred
 
 EMS Point: RTU 6 Filter
 EMS Value: Dirty

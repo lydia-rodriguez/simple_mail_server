@@ -24,7 +24,7 @@ class SimpleMailServer(smtpd.SMTPServer):
 
     def process_message(self, peer, mailfrom, rcpttos, data):
         try:
-            # print data
+            # print(data)
             time_received = time.time()
             ttl_ts = time_received + self._message_ttl
             self._session.add(Message(source=str(peer), sender=str(mailfrom), recipients=str(rcpttos), body=str(data),

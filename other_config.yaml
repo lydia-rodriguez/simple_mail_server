@@ -1,0 +1,18 @@
+--- #config file for test data collector
+#database config
+db_protocol:            'postgresql'
+db_host:                '10.10.243.83'
+db_port:                '5432'
+db_name:                'mail_parser_db'
+db_username:            'mail_server'
+db_password:            'mail_server'
+#this string overrides any other database settings
+#connection_string:      'sqlite:///testdb.sqlite'
+#SMTP server setup
+ip_address:             '10.10.106.168'
+port:                   8888
+msg_ttl:                2592000
+msg_ttl_enabled:        false
+#logger config
+log_name:               'mail_parser_log'
+log_location:           '/var/log/mail_parser/mail_parser.log'
